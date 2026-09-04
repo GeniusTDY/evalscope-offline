@@ -13,6 +13,7 @@ evalscope-offline/
 ├── evalscope/                     # EvalScope 项目源码（含 React WebUI 构建产物）
 ├── datasets_cache/                # 评测数据集缓存（离线加载来源）
 │   └── modelscope/datasets/datasets/
+├── pyproject.toml                 # 离线 wheel 构建配置（免编译产物见 dist/）
 ├── requirements.txt               # 冻结的 Python 依赖（pip freeze）
 └── README.md
 ```
@@ -34,17 +35,25 @@ evalscope-offline/
 
 ## 离线部署步骤（目标机需自带 Python 3.12 + 局域网 pip 源）
 
-1. 安装依赖（走局域网 pip 源，全程不发外部网络）：
+1. 安装 evalscope（直接从仓库内**免编译**的 wheel 本地安装，全程不发任何网络）：
 
    ```bash
    python -m venv .venv
+   .venv/bin/pip install --no-deps dist/evalscope-1.11.1-py3-none-any.whl
+   ```
+
+   该 wheel 由本仓库源码经 `pyproject.toml` 打包而成，内含已彻底剔除 `race`/`trivia_qa` 的源码、React WebUI 构建产物与完整基准注册表。
+
+2. 安装其余依赖（走局域网 pip 源）：
+
+   ```bash
    .venv/bin/pip install -r requirements.txt \
        --index-url http://<局域网pip源>/simple/
    ```
 
-   `requirements.txt` 为**顶层宽松清单**：锁定可离线复现的 `evalscope==1.11.1` 与 RAG 修复 `langchain-community<0.4`，其余依赖由 pip 从局域网源解析。完整解析结果另见 `requirements-lock.txt`（参考）。
+   `requirements.txt` 为**顶层宽松清单**，含 `evalscope==1.11.1`，已被上一步的 wheel 满足，因此 pip 只解析 `evalscope` 的传递依赖（transformers/modelscope/torch 等）并全部走局域网源，不会重复安装 evalscope、也不会触碰外网。RAG 修复项 `langchain-community<0.4` 同时生效。完整解析结果另见 `requirements-lock.txt`（参考）。
 
-2. 将本仓库的 `datasets_cache/` 放置到目标机，并导出缓存路径环境变量：
+3. 将本仓库的 `datasets_cache/` 放置到目标机，并导出缓存路径环境变量：
 
    ```bash
    export MODELSCOPE_CACHE=/绝对路径/datasets_cache/modelscope
@@ -53,16 +62,16 @@ evalscope-offline/
 
    > 说明：`RemoteDataLoader` 按 `$EVALSCOPE_CACHE/datasets/<数据名>-<hash>` 落盘查找，命中即走 `load_from_disk`，**不再联网**。
 
-3. 开始评测（模型为你的本地模型，联网加载路径不参与）：
+4. 开始评测（模型为你的本地模型，联网加载路径不参与）：
 
    ```bash
    evalscope eval --model /绝对路径/你的本地模型 ...
    ```
 
-4. 启动 WebUI Dashboard（可选，离线可用）：
+5. 启动 WebUI Dashboard（可选，离线可用）：
 
    ```bash
-   evalscope service up
+   evalscope service --host 0.0.0.0 --port 9000
    ```
 
 ## 数据集
