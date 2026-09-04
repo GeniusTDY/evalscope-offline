@@ -1,20 +1,14 @@
 @echo off
 rem EvalScope Offline one-click deploy (Windows)
-rem Usage: install.bat <局域网pip源URL> [数据集缓存绝对路径]
-rem   <URL> required, e.g. http://192.168.1.10/simple/
-rem   [path] optional, default is the bundled datasets_cache\modelscope
+rem Usage: install.bat [数据集缓存绝对路径]
+rem Note: LAN pip index is configured globally, no index URL needed here
 setlocal
 
-if "%~1"=="" (
-    echo Usage: install.bat ^<局域网pip源URL^> [数据集缓存绝对路径]
-    exit /b 1
-)
-set "INDEX_URL=%~1"
 set "ROOT=%~dp0"
-if "%~2"=="" (
+if "%~1"=="" (
     set "CACHE_DIR=%ROOT%datasets_cache\modelscope"
 ) else (
-    set "CACHE_DIR=%~2"
+    set "CACHE_DIR=%~1"
 )
 
 echo ==^> Creating virtual env
@@ -24,8 +18,8 @@ call .venv\Scripts\activate.bat
 echo ==^> Installing evalscope (offline wheel)
 pip install --no-deps "%ROOT%dist\evalscope-1.11.1-py3-none-any.whl"
 
-echo ==^> Installing deps from LAN mirror: %INDEX_URL%
-pip install -r "%ROOT%requirements.txt" --index-url "%INDEX_URL%"
+echo ==^> Installing deps from global pip source
+pip install -r "%ROOT%requirements.txt"
 
 echo.
 echo =============================================

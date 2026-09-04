@@ -21,12 +21,12 @@ EvalScope 的**断网可用**封装：对本地大模型做评测、压测与 We
 
 ## 部署（离线机）
 
-前置：**Python 3.12** + **局域网 pip 源**。
+前置：**Python 3.12** + 局域网 pip 源已配置在 pip 全局配置中。
 
 **一键部署**（自动建 venv → 装 wheel → 装依赖）
 ```bash
-# Linux / macOS（填你的局域网源 URL）    # Windows（cmd 中）
-./install.sh http://192.168.1.10/simple/    install.bat http://192.168.1.10/simple/
+# Linux / macOS    # Windows（cmd 中）
+./install.sh        install.bat
 ```
 
 若走手动，步骤与平台差异如下：
@@ -36,7 +36,7 @@ EvalScope 的**断网可用**封装：对本地大模型做评测、压测与 We
 | 建环境 | `python -m venv .venv` | 同左 |
 | 激活 | `source .venv/bin/activate` | `venv\Scripts\activate.bat` |
 | 装本体 | `pip install --no-deps dist/evalscope-1.11.1-py3-none-any.whl` | 同左（路径换 `\`） |
-| 装依赖 | `pip install -r requirements.txt --index-url http://<局域网源>/simple/` | 同左 |
+| 装依赖 | `pip install -r requirements.txt`（pip 源走全局配置） | 同左 |
 | 数据缓存 | `export MODELSCOPE_CACHE=...` / `export EVALSCOPE_CACHE=...` | `set MODELSCOPE_CACHE=...` / `set EVALSCOPE_CACHE=...` |
 
 数据缓存环境变量（`MODELSCOPE_CACHE` 指到 `datasets_cache/modelscope`，`EVALSCOPE_CACHE` 为 `.../datasets`）写入 Linux `~/.bashrc` 或 Windows 开机环境变量即可。

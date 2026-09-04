@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 # EvalScope Offline 一键部署（Linux / macOS）
-# 用法: ./install.sh <局域网pip源URL> [数据集缓存绝对路径]
-#   <URL> 必填，形如 http://192.168.1.10/simple/
-#   [路径] 可选，默认取仓库内置 datasets_cache/modelscope
+# 用法: ./install.sh [数据集缓存绝对路径]
+# 说明: pip 局域网源已配置在全局（pip.conf / 环境变量），无需在此指定
 set -euo pipefail
 
-INDEX_URL="${1:?用法: ./install.sh <局域网pip源URL> [数据集缓存绝对路径]}"
 ROOT="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
-CACHE_DIR="${2:-$ROOT/datasets_cache/modelscope}"
+CACHE_DIR="${1:-$ROOT/datasets_cache/modelscope}"
 
 echo "==> 创建虚拟环境"
 python -m venv .venv
@@ -16,8 +14,8 @@ source .venv/bin/activate
 echo "==> 安装 evalscope 本体（离线 wheel）"
 pip install --no-deps "$ROOT"/dist/evalscope-1.11.1-py3-none-any.whl
 
-echo "==> 安装依赖（局域网源: $INDEX_URL）"
-pip install -r "$ROOT/requirements.txt" --index-url "$INDEX_URL"
+echo "==> 安装依赖（走全局 pip 源）"
+pip install -r "$ROOT/requirements.txt"
 
 echo
 echo "============================================="
