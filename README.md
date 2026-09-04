@@ -44,7 +44,7 @@ evalscope-offline/
 
    `requirements.txt` 为**顶层宽松清单**：锁定可离线复现的 `evalscope==1.11.1` 与 RAG 修复 `langchain-community<0.4`，其余依赖由 pip 从局域网源解析。完整解析结果另见 `requirements-lock.txt`（参考）。
 
-2. 将**完整数据集缓存**放置到目标机（含直传，不受 GitHub 100MB 限制），并导出环境变量：
+2. 将本仓库的 `datasets_cache/` 放置到目标机，并导出缓存路径环境变量：
 
    ```bash
    export MODELSCOPE_CACHE=/绝对路径/datasets_cache/modelscope
@@ -65,14 +65,9 @@ evalscope-offline/
    evalscope service up
    ```
 
-## 数据集：GitHub 仓仅含 19 个，其余随包直传
+## 数据集
 
-GitHub 有 **100MB 单文件硬上限**，因此以下两个基准**未进入本仓库**：
-
-- **trivia_qa**（精简版 rc.wikipedia，单文件 ≈ 410MB）
-- **race**（high/middle，单文件 ≈ 120MB）
-
-**离线部署时请携带完整 `datasets_cache/`（含上述两个）到目标机**，用 USB / 局域网直传即可——离线环境不受 GitHub 限制，两个基准也都已通过离线加载验证。
+本仓库的 `datasets_cache/modelscope/datasets/datasets/` 内即包含上表全部 **19 个基准**的离线缓存，随仓库一起获取后放置到目标机即可，无需额外下载任何数据集。`trivia_qa`、`race` 两个基准及其数据已从本项目**彻底移除**（不提供、不部署）。
 
 ## 环境依赖
 

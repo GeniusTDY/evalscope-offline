@@ -29,7 +29,6 @@ DEFAULT_TEXT_BENCHMARKS: List[str] = [
     'logi_qa',
     'qasc',
     'sciq',
-    'race',
     'mgsm',
     'multi_if',
     'ifeval',
