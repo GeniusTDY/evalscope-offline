@@ -12,6 +12,7 @@ EvalScope 的**断网可用**封装：对本地大模型做评测、压测与 We
 | `evalscope/` | 源码（含 `web/dist` 前端） |
 | `datasets_cache/` | 19 个基准的数据缓存（离线加载） |
 | `dist/*.whl` | 免编译 wheel 安装包 |
+| `install.sh` / `install.bat` | 一键部署脚本（Linux / Windows） |
 | `pyproject.toml` | wheel 构建配置 |
 | `requirements.txt` | 依赖清单（走局域网源） |
 | `requirements-lock.txt` | pip freeze 快照（兜底参考） |
@@ -22,23 +23,23 @@ EvalScope 的**断网可用**封装：对本地大模型做评测、压测与 We
 
 前置：**Python 3.12** + **局域网 pip 源**。
 
-**Step 1：创建环境并安装本体（离线）**
+**一键部署**（自动建 venv → 装 wheel → 装依赖）
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install --no-deps dist/evalscope-1.11.1-py3-none-any.whl
+# Linux / macOS（填你的局域网源 URL）    # Windows（cmd 中）
+./install.sh http://192.168.1.10/simple/    install.bat http://192.168.1.10/simple/
 ```
 
-**Step 2：安装依赖（走局域网源）**
-```bash
-pip install -r requirements.txt \
-    --index-url http://<局域网pip源>/simple/
-```
+若走手动，步骤与平台差异如下：
 
-**Step 3：配置数据集缓存**（写入 `~/.bashrc`）
-```bash
-export MODELSCOPE_CACHE=/绝对路径/datasets_cache/modelscope
-export EVALSCOPE_CACHE=/绝对路径/datasets_cache/modelscope/datasets
-```
+| 步骤 | Linux / macOS | Windows (cmd) |
+|---|---|---|
+| 建环境 | `python -m venv .venv` | 同左 |
+| 激活 | `source .venv/bin/activate` | `venv\Scripts\activate.bat` |
+| 装本体 | `pip install --no-deps dist/evalscope-1.11.1-py3-none-any.whl` | 同左（路径换 `\`） |
+| 装依赖 | `pip install -r requirements.txt --index-url http://<局域网源>/simple/` | 同左 |
+| 数据缓存 | `export MODELSCOPE_CACHE=...` / `export EVALSCOPE_CACHE=...` | `set MODELSCOPE_CACHE=...` / `set EVALSCOPE_CACHE=...` |
+
+数据缓存环境变量（`MODELSCOPE_CACHE` 指到 `datasets_cache/modelscope`，`EVALSCOPE_CACHE` 为 `.../datasets`）写入 Linux `~/.bashrc` 或 Windows 开机环境变量即可。
 
 > 勿用 PYTHONPATH 引入源码安装，会报 `collections` 遮蔽错误。
 
