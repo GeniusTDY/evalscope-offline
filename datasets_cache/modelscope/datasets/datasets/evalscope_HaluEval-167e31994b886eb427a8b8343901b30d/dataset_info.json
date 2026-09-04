@@ -1,0 +1,50 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "dialogue_samples",
+  "dataset_name": "halu_eval",
+  "dataset_size": 5303515,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/HaluEval@master/dialogue_samples/data-00000-of-00001.parquet": {
+      "num_bytes": 2834937,
+      "checksum": null
+    }
+  },
+  "download_size": 2834937,
+  "features": {
+    "knowledge": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "dialogue_history": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "response": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "hallucination": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 8138452,
+  "splits": {
+    "data": {
+      "name": "data",
+      "num_bytes": 5303515,
+      "num_examples": 10000,
+      "dataset_name": "halu_eval"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "hellaswag",
+  "dataset_size": 11176973,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/hellaswag@master/data/validation-00000-of-00001.parquet": {
+      "num_bytes": 6315951,
+      "checksum": null
+    }
+  },
+  "download_size": 6315951,
+  "features": {
+    "ind": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "activity_label": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "ctx_a": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "ctx_b": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "ctx": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "endings": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "List"
+    },
+    "source_id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "split": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "split_type": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "label": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 17492924,
+  "splits": {
+    "validation": {
+      "name": "validation",
+      "num_bytes": 11176973,
+      "num_examples": 10042,
+      "dataset_name": "hellaswag"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

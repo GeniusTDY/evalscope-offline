@@ -1,0 +1,70 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "bigcodebench",
+  "dataset_size": 6577494,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/bigcodebench@master/data/v0.1.4-00000-of-00001.parquet": {
+      "num_bytes": 2362110,
+      "checksum": null
+    }
+  },
+  "download_size": 2362110,
+  "features": {
+    "task_id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "complete_prompt": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "instruct_prompt": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "canonical_solution": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "code_prompt": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "test": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "entry_point": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "doc_struct": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "libs": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 8939604,
+  "splits": {
+    "v0.1.4": {
+      "name": "v0.1.4",
+      "num_bytes": 6577494,
+      "num_examples": 1140,
+      "dataset_name": "bigcodebench"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

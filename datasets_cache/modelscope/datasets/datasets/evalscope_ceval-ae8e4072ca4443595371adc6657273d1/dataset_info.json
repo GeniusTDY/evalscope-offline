@@ -1,0 +1,66 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "sports_science",
+  "dataset_name": "ceval",
+  "dataset_size": 4183,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/ceval@master/sports_science/dev-00000-of-00001.parquet": {
+      "num_bytes": 10792,
+      "checksum": null
+    }
+  },
+  "download_size": 10792,
+  "features": {
+    "id": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "A": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "B": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "C": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "D": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "explanation": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 14975,
+  "splits": {
+    "dev": {
+      "name": "dev",
+      "num_bytes": 4183,
+      "num_examples": 5,
+      "dataset_name": "ceval"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

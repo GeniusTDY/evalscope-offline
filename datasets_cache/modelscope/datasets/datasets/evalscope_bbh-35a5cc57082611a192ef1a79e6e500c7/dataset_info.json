@@ -1,0 +1,42 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "object_counting",
+  "dataset_name": "bbh",
+  "dataset_size": 30508,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/bbh@master/object_counting/test-00000-of-00001.parquet": {
+      "num_bytes": 10229,
+      "checksum": null
+    }
+  },
+  "download_size": 10229,
+  "features": {
+    "input": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "target": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 40737,
+  "splits": {
+    "test": {
+      "name": "test",
+      "num_bytes": 30508,
+      "num_examples": 250,
+      "dataset_name": "bbh"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

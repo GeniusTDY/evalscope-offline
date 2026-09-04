@@ -1,0 +1,64 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "full",
+  "dataset_name": "mbpp",
+  "dataset_size": 244167,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/google-research-datasets/mbpp@master/full/test-00000-of-00001.parquet": {
+      "num_bytes": 115824,
+      "checksum": null
+    }
+  },
+  "download_size": 115824,
+  "features": {
+    "task_id": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "text": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "code": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "test_list": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "List"
+    },
+    "test_setup_code": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "challenge_test_list": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "List"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 359991,
+  "splits": {
+    "test": {
+      "name": "test",
+      "num_bytes": 244167,
+      "num_examples": 500,
+      "dataset_name": "mbpp"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

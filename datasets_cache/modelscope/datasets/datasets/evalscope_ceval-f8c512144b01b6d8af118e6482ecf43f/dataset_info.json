@@ -1,0 +1,66 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "civil_servant",
+  "dataset_name": "ceval",
+  "dataset_size": 21279,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/ceval@master/civil_servant/val-00000-of-00001.parquet": {
+      "num_bytes": 22397,
+      "checksum": null
+    }
+  },
+  "download_size": 22397,
+  "features": {
+    "id": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "A": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "B": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "C": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "D": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "explanation": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 43676,
+  "splits": {
+    "val": {
+      "name": "val",
+      "num_bytes": 21279,
+      "num_examples": 47,
+      "dataset_name": "ceval"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}
