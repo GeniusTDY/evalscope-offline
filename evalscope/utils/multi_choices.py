@@ -303,7 +303,7 @@ def parse_answers_zh(state: TaskState, multiple_correct: bool = False, completio
     """
     Convenience function for extracting answers from the state output in Chinese format.
 
-    The generated response must be in the format '答案：选项',
+    The generated response must be in the format '答案：选项' (answer: option),
     otherwise we can't extract what the model thinks is "true". We can be a
     bit flexible whether these are "AB" vs "A,B" vs "A B".
 

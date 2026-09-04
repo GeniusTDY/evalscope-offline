@@ -397,10 +397,10 @@ IN_VALID_CHARS = {c: True for c in VALID_CHARS}
 # ================================================================================ #
 class ChineseChar(object):
     """
-    中文字符
-    每个字符对应简体和繁体,
-    e.g. 简体 = '负', 繁体 = '負'
-    转换时可转换为简体或繁体
+    A Chinese character.
+    Each character maps to both simplified and traditional forms,
+    e.g. simplified = '负', traditional = '負'
+    It can be converted to either simplified or traditional form.
     """
 
     def __init__(self, simplified, traditional):
@@ -417,9 +417,9 @@ class ChineseChar(object):
 
 class ChineseNumberUnit(ChineseChar):
     """
-    中文数字/数位字符
-    每个字符除繁简体外还有一个额外的大写字符
-    e.g. '陆' 和 '陸'
+    Chinese number / digit character.
+    Besides the simplified/traditional forms, each character also has
+    an additional capital form, e.g. '陆' and '陸'.
     """
 
     def __init__(self, power, simplified, traditional, big_s, big_t):
@@ -455,7 +455,7 @@ class ChineseNumberUnit(ChineseChar):
 
 class ChineseNumberDigit(ChineseChar):
     """
-    中文数字字符
+    A Chinese number digit character.
     """
 
     def __init__(self, value, simplified, traditional, big_s, big_t, alt_s=None, alt_t=None):
@@ -476,7 +476,7 @@ class ChineseNumberDigit(ChineseChar):
 
 class ChineseMath(ChineseChar):
     """
-    中文数位字符
+    Chinese math digit character.
     """
 
     def __init__(self, simplified, traditional, symbol, expression=None):
@@ -492,7 +492,7 @@ CC, CNU, CND, CM = ChineseChar, ChineseNumberUnit, ChineseNumberDigit, ChineseMa
 
 class NumberSystem(object):
     """
-    中文数字系统
+    Chinese number system.
     """
 
     pass
@@ -500,7 +500,7 @@ class NumberSystem(object):
 
 class MathSymbol(object):
     """
-    用于中文数字系统的数学符号 (繁/简体), e.g.
+    Math symbols for the Chinese number system (simplified/traditional), e.g.
     positive = ['正', '正']
     negative = ['负', '負']
     point = ['点', '點']
@@ -534,12 +534,12 @@ class MathSymbol(object):
 # ================================================================================ #
 def create_system(numbering_type=NUMBERING_TYPES[1]):
     """
-    根据数字系统类型返回创建相应的数字系统，默认为 mid
-    NUMBERING_TYPES = ['low', 'mid', 'high']: 中文数字系统类型
+    Create the number system for the given numbering type (default: mid).
+    NUMBERING_TYPES = ['low', 'mid', 'high']: Chinese number system types
         low:  '兆' = '亿' * '十' = $10^{9}$,  '京' = '兆' * '十', etc.
         mid:  '兆' = '亿' * '万' = $10^{12}$, '京' = '兆' * '万', etc.
         high: '兆' = '亿' * '亿' = $10^{16}$, '京' = '兆' * '兆', etc.
-    返回对应的数字系统
+    Returns the corresponding number system.
     """
 
 
@@ -591,8 +591,8 @@ def chn2num(chinese_string, numbering_type=NUMBERING_TYPES[1]):
 
     def correct_symbols(integer_symbols, system):
         """
-        一百八 to 一百八十
-        一亿一千三百万 to 一亿 一千万 三百万
+        Insert missing units into the number sequence, e.g. supply an
+        omitted tens unit and expand missing ten-thousand units.
         """
 
         if integer_symbols and isinstance(integer_symbols[0], CNU):
@@ -624,8 +624,9 @@ def chn2num(chinese_string, numbering_type=NUMBERING_TYPES[1]):
     def compute_value(integer_symbols):
         """
         Compute the value.
-        When current unit is larger than previous unit, current unit * all previous units will be used as all previous units.
-        e.g. '两千万' = 2000 * 10000 not 2000 + 10000
+        When the current unit is larger than the previous unit, the current
+        unit multiplies all previous units, e.g. 20 million = 2000 * 10000,
+        not 2000 + 10000.
         """  # noqa: E501
         value = [0]
         last_power = 0
@@ -757,7 +758,7 @@ def num2chn(
 # ================================================================================ #
 class Cardinal:
     """
-    CARDINAL类
+    CARDINAL type.
     """
 
     def __init__(self, cardinal=None, chntext=None):
@@ -773,7 +774,7 @@ class Cardinal:
 
 class Digit:
     """
-    DIGIT类
+    DIGIT type.
     """
 
     def __init__(self, digit=None, chntext=None):
@@ -789,7 +790,7 @@ class Digit:
 
 class TelePhone:
     """
-    TELEPHONE类
+    TELEPHONE type.
     """
 
     def __init__(self, telephone=None, raw_chntext=None, chntext=None):
@@ -818,7 +819,7 @@ class TelePhone:
 
 class Fraction:
     """
-    FRACTION类
+    FRACTION type.
     """
 
     def __init__(self, fraction=None, chntext=None):
@@ -836,7 +837,7 @@ class Fraction:
 
 class Date:
     """
-    DATE类
+    DATE type.
     """
 
     def __init__(self, date=None, chntext=None):
@@ -894,7 +895,7 @@ class Date:
 
 class Money:
     """
-    MONEY类
+    MONEY type.
     """
 
     def __init__(self, money=None, chntext=None):
@@ -917,7 +918,7 @@ class Money:
 
 class Percentage:
     """
-    PERCENTAGE类
+    PERCENTAGE type.
     """
 
     def __init__(self, percentage=None, chntext=None):
@@ -1024,8 +1025,7 @@ def normalize_nsw(raw_text):
 
 def remove_erhua(text):
     """
-    去除儿化音词中的儿:
-    他女儿在那边儿 -> 他女儿在那边
+    Remove the erhua suffix '儿' from words where appropriate.
     """
 
     new_str = ''

@@ -87,7 +87,7 @@ function setLang(lang) {
   try { localStorage.setItem('evalscope-lang', lang); } catch (e) { /* ignore */ }
 }
 
-/* Bind click handlers to the EN / 中文 toggle buttons */
+/* Bind click handlers to the EN / ZH toggle buttons */
 document.querySelectorAll('.lang-btn').forEach(function (btn) {
   btn.addEventListener('click', function () { setLang(btn.dataset.lang); });
 });

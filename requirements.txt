@@ -11,7 +11,10 @@
 #
 # NOTE (offline machine must satisfy these; provided by your env):
 #   - Python 3.12 (this bundle was built/tested on 3.12.13)
-#   - CPU build of torch + its CUDA-free extras must exist on the LAN mirror,
-#     since transformers/modelscope pull torch transitively.
+#   - CPU builds of torch/torchvision (+cpu) must exist on the LAN mirror,
+#     since transformers/modelscope pull torch transitively. These +cpu builds
+#     are the standard wheels published on the official PyTorch CPU index
+#     (https://download.pytorch.org/whl/cpu); if the mirror lacks them,
+#     download from there (e.g. torch==2.14.0+cpu, torchvision==0.29.0+cpu).
 evalscope==1.11.1
 langchain-community<0.4

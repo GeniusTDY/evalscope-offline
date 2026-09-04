@@ -103,7 +103,7 @@ def parse_benchmark_description(readme_content: str) -> Dict[str, Any]:
 
     Steps:
     1. Strip the leading H1 heading.
-    2. Remove the last H2 section (e.g. ``使用方法`` / ``Usage``).
+    2. Remove the last H2 section (e.g. the ``Usage`` heading, in Chinese or English).
     3. Split the remaining content by H2 headings into a canonical-English-
        keyed dict (insertion order matches document order).
     4. Return both the full processed text and the per-section dict.

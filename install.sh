@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# EvalScope Offline 一键部署（Linux / macOS）
-# 用法: ./install.sh [数据集缓存绝对路径]
-# 说明: pip 局域网源已配置在全局（pip.conf / 环境变量），无需在此指定
+# EvalScope Offline one-click deployment (Linux / macOS)
+# Usage: ./install.sh [dataset cache absolute path]
+# Note: pip LAN mirror is configured globally (pip.conf / env vars); no need to specify here
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"

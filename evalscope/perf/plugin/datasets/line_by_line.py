@@ -16,7 +16,7 @@ class LineByLineDatasetPlugin(DatasetPluginBase):
 
     1. **Plain text** (original format)::
 
-        example: 今天天气怎么样？
+        example: How is the weather today?
 
        Treated as a raw prompt string. ``__compose_query_from_parameter`` is
        called to merge CLI-level generation parameters (e.g. ``temperature``).
