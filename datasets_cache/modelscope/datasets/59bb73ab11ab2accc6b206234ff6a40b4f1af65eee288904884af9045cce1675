@@ -1,0 +1,28 @@
+---
+dataset_info:
+  features:
+  - name: question
+    dtype: string
+  - name: choices
+    sequence: string
+  - name: answer
+    dtype: string
+  - name: answer_index
+    dtype: int64
+  splits:
+  - name: train
+    num_bytes: 4249009
+    num_examples: 16113
+  - name: validation
+    num_bytes: 480851
+    num_examples: 1838
+  download_size: 2225835
+  dataset_size: 4729860
+configs:
+- config_name: default
+  data_files:
+  - split: train
+    path: data/train-*
+  - split: validation
+    path: data/validation-*
+---

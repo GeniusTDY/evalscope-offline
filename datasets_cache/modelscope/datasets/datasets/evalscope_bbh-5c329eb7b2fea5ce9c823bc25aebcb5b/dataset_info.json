@@ -1,0 +1,42 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "navigate",
+  "dataset_name": "bbh",
+  "dataset_size": 49031,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/bbh@master/navigate/test-00000-of-00001.parquet": {
+      "num_bytes": 9535,
+      "checksum": null
+    }
+  },
+  "download_size": 9535,
+  "features": {
+    "input": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "target": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 58566,
+  "splits": {
+    "test": {
+      "name": "test",
+      "num_bytes": 49031,
+      "num_examples": 250,
+      "dataset_name": "bbh"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

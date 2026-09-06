@@ -1,0 +1,42 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "multistep_arithmetic_two",
+  "dataset_name": "bbh",
+  "dataset_size": 12943,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/bbh@master/multistep_arithmetic_two/test-00000-of-00001.parquet": {
+      "num_bytes": 7360,
+      "checksum": null
+    }
+  },
+  "download_size": 7360,
+  "features": {
+    "input": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "target": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 20303,
+  "splits": {
+    "test": {
+      "name": "test",
+      "num_bytes": 12943,
+      "num_examples": 250,
+      "dataset_name": "bbh"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

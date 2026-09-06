@@ -1,0 +1,42 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "dyck_languages",
+  "dataset_name": "bbh",
+  "dataset_size": 38432,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/bbh@master/dyck_languages/test-00000-of-00001.parquet": {
+      "num_bytes": 9649,
+      "checksum": null
+    }
+  },
+  "download_size": 9649,
+  "features": {
+    "input": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "target": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 48081,
+  "splits": {
+    "test": {
+      "name": "test",
+      "num_bytes": 38432,
+      "num_examples": 250,
+      "dataset_name": "bbh"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

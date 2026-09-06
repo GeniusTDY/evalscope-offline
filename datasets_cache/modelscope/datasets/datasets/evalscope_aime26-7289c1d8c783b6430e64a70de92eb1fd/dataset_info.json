@@ -1,0 +1,46 @@
+{
+  "builder_name": "json",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "aime26",
+  "dataset_size": 12184,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/aime26@master/aime2026.jsonl": {
+      "num_bytes": 13101,
+      "checksum": null
+    }
+  },
+  "download_size": 13101,
+  "features": {
+    "problem": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "id": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 25285,
+  "splits": {
+    "test": {
+      "name": "test",
+      "num_bytes": 12184,
+      "num_examples": 30,
+      "dataset_name": "aime26"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

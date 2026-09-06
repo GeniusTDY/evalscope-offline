@@ -1,0 +1,23 @@
+---
+dataset_info:
+  features:
+  - name: sentence
+    dtype: string
+  - name: option1
+    dtype: string
+  - name: option2
+    dtype: string
+  - name: answer
+    dtype: string
+  - name: id
+    dtype: string
+  splits:
+  - name: validation
+    num_bytes: 196015
+    num_examples: 1267
+  download_size: 94663
+  dataset_size: 196015
+---
+# Dataset Card for "winogrande_val"
+
+[More Information needed](https://github.com/huggingface/datasets/blob/main/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)

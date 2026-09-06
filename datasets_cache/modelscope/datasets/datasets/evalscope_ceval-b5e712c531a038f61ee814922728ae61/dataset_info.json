@@ -1,0 +1,66 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "teacher_qualification",
+  "dataset_name": "ceval",
+  "dataset_size": 12226,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/ceval@master/teacher_qualification/val-00000-of-00001.parquet": {
+      "num_bytes": 14463,
+      "checksum": null
+    }
+  },
+  "download_size": 14463,
+  "features": {
+    "id": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "A": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "B": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "C": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "D": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "explanation": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 26689,
+  "splits": {
+    "val": {
+      "name": "val",
+      "num_bytes": 12226,
+      "num_examples": 44,
+      "dataset_name": "ceval"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "formal_fallacies",
+  "dataset_name": "bbh",
+  "dataset_size": 138224,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/bbh@master/formal_fallacies/test-00000-of-00001.parquet": {
+      "num_bytes": 34557,
+      "checksum": null
+    }
+  },
+  "download_size": 34557,
+  "features": {
+    "input": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "target": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 172781,
+  "splits": {
+    "test": {
+      "name": "test",
+      "num_bytes": 138224,
+      "num_examples": 250,
+      "dataset_name": "bbh"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

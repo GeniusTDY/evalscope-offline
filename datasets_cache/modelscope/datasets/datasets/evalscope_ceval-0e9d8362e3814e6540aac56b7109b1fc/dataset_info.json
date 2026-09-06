@@ -1,0 +1,66 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "middle_school_physics",
+  "dataset_name": "ceval",
+  "dataset_size": 5282,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/evalscope/ceval@master/middle_school_physics/val-00000-of-00001.parquet": {
+      "num_bytes": 9782,
+      "checksum": null
+    }
+  },
+  "download_size": 9782,
+  "features": {
+    "id": {
+      "dtype": "int32",
+      "_type": "Value"
+    },
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "A": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "B": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "C": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "D": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "explanation": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 15064,
+  "splits": {
+    "val": {
+      "name": "val",
+      "num_bytes": 5282,
+      "num_examples": 19,
+      "dataset_name": "ceval"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

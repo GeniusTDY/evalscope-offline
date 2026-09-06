@@ -1,0 +1,25 @@
+---
+dataset_info:
+  features:
+  - name: id
+    dtype: string
+  - name: category
+    dtype: string
+  - name: question
+    dtype: string
+  - name: choices
+    sequence: string
+  - name: answer
+    dtype: string
+  splits:
+  - name: test
+    num_bytes: 3532213
+    num_examples: 11582
+  download_size: 2092166
+  dataset_size: 3532213
+configs:
+- config_name: default
+  data_files:
+  - split: test
+    path: data/test-*
+---
