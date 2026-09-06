@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-"""Offline verification: every bundled benchmark must load WITHOUT hitting the network."""
 import os
 import sys
 import time
@@ -26,16 +24,6 @@ hub_mod.DatasetHub.download_file = _boom('DatasetHub.download_file')
 hub_mod.DatasetHub.download_snapshot = _boom('DatasetHub.download_snapshot')
 sys.modules['evalscope.api.dataset.hub'] = hub_mod
 importlib.import_module('evalscope.api.dataset.loader')
-
-import evalscope.api.dataset.loader as loader_mod
-_orig_load = loader_mod.RemoteDataLoader.load
-def traced_load(self):
-    d = os.path.join(self.dataset_dir or loader_mod.DEFAULT_EVALSCOPE_CACHE_DIR, 'datasets',
-                     f'{loader_mod.safe_filename(self.data_id_or_path)}-'
-                     f'{loader_mod._dataset_cache_hash(self.data_id_or_path, self.split, self.subset, self.version, self.data_source, self.kwargs)}')
-    print(f"  TRACE path={self.data_id_or_path} split={self.split} subset={self.subset} exists={os.path.exists(d)} -> {d}", flush=True)
-    return _orig_load(self)
-loader_mod.RemoteDataLoader.load = traced_load
 
 BENCHMARKS = [
     'gsm8k', 'competition_math', 'aime26', 'mmlu_redux', 'arc', 'bbh', 'ceval',
