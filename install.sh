@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# EvalScope Offline one-click deployment (Linux / macOS)
+# EvalScope Offline one-click deployment (Linux)
 # Usage: ./install.sh [dataset cache absolute path]
 # Note: pip LAN mirror is configured globally (pip.conf / env vars); no need to specify here
 set -euo pipefail
